@@ -1,0 +1,19 @@
+Files in this directory are templates that will extend the base html file.
+
+E.g. if in base html we have:
+
+{% block title %}Home{% endblock %}
+
+and in the home.html that extends the base html, we have:
+
+{% block title %}Changed{% endblock %}
+
+then, the exact element will be changed in home.html, and the rest will be identical to base html.
+
+To render templates, user render_templates inside of the Blueprints.
+
+E.g.:
+
+@views.route('/')
+def home():
+    return render_template(home.html)

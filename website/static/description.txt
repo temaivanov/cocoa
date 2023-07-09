@@ -1,0 +1,2 @@
+All static things will go into this directory.
+E.g. Javascript files, images, CSS files.
