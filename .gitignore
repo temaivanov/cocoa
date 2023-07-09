@@ -21,6 +21,7 @@ docs/_build/
 .vscode
 /config.py
 config.py
+/dummy.py
 dummy.py
 
 # Coverage reports
