@@ -17,3 +17,7 @@ E.g.:
 @views.route('/')
 def home():
     return render_template(home.html)
+
+HOW JINJA WORKS?
+
+-- Basically, if you have a base HTML document, in it you can define jinja-blocks. Whatever template extends the base HTML will overwrite the content of the jinja-block with their content and rendering rules

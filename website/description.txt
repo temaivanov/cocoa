@@ -1,0 +1,5 @@
+in this folder we describe the logic behind controllers.
+
+We create a blueprint per every unique screen of our app. For that screen, in blueprints we may assign various routes, and business logic on what to do when a route is accessed. 
+
+For example, in this project login functionality has a dedicated blueprint, and all other screens are placed within the views blueprint (which makes sense for single-page-applications).
