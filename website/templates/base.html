@@ -22,24 +22,45 @@
   <body>
     <!--the navigation bar is defined with bootstrap classes-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbar"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbar">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" id="home" href="/">Home</a>
-            <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
-            <a class="nav-item nav-link" id="login" href="/auth/login">Login</a>
-            <a class="nav-item nav-link" id="signUp" href="/auth/signup">Sign Up</a>
-          </div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" id="home" href="/">Home</a>
+          <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+          <a class="nav-item nav-link" id="login" href="/auth/login">Login</a>
+          <a class="nav-item nav-link" id="signUp" href="/auth/signup"
+            >Sign Up</a
+          >
         </div>
-      </nav>
-      <div class="container">{% block content %} {% endblock %}</div>
+      </div>
+    </nav>
+    <!--I want my notifications to be flashed belove the nav bar, therefore i place the following code here:-->
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <!--if we have any messages raised from auth.py at all-->
+    {% for category, message in messages %} {% if category == 'error' %}
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+    <div class="container">{% block content %} {% endblock %}</div>
     <!--these scripts will load the havascript related to the Bootstrap-->
     <!--not critical scripts, therefore put it at the very bottom of the html-->
     <script
@@ -58,3 +79,4 @@
       crossorigin="anonymous"
     ></script>
   </body>
+</html>
