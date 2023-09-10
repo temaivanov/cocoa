@@ -1,10 +1,18 @@
 #making the website folder a python package by adding the __init__.py into the directory
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+#create a new database
+
+db = SQLAlchemy()
+DB_NAME = "artemdb.db"
 
 def create_app():
     app = Flask(__name__)
     app.config.from_pyfile('config.py')
-
+    app.config['SQLAlchemy_DATABASE_URI'] =  f'sqlite:///{DB_NAME}'
+    db.init_app(app)
+    
     from .auth import auth
     from .views import views
 
