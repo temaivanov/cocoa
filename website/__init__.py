@@ -1,4 +1,4 @@
-#making the website folder a python package by adding the __init__.py into the directory
+#making the 'website' folder a python package by adding the __init__.py into the directory
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
