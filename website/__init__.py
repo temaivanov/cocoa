@@ -10,9 +10,9 @@ DB_NAME = "artemdb.db"
 def create_app():
     app = Flask(__name__)
     app.config.from_pyfile('config.py')
-    app.config['SQLAlchemy_DATABASE_URI'] =  f'sqlite:///{DB_NAME}'
+    app.config['SQLALCHEMY_DATABASE_URI'] =  'sqlite:///aretmdb.db'
     db.init_app(app)
-    
+
     from .auth import auth
     from .views import views
 
